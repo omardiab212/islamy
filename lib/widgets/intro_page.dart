@@ -18,6 +18,7 @@ class IntroPage extends StatelessWidget {
         children: [
           Image.asset(image) ,
           Text(headText , style: titleLarge(fontSize: 24 ,)),
+
           activeSubText == false ? Container() :
           Center(child: Text(subText! , style:  titleLarge(fontSize: 20 ,) , textAlign: TextAlign.center,)),
 

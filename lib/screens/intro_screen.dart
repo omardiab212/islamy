@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamy/screens/home_screen.dart';
+import 'package:islamy/screens/home/home_screen.dart';
 import 'package:islamy/theme/app_colors.dart';
 import 'package:islamy/theme/text_style.dart';
 import 'package:islamy/widgets/intro_page.dart';
@@ -33,7 +33,6 @@ class _IntroScreenState extends State<IntroScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("assets/images/img_header.png") ,
-
             Expanded(
               child: PageView(
                 controller: _controller,
@@ -48,7 +47,6 @@ class _IntroScreenState extends State<IntroScreen> {
                   IntroPage(image: "assets/images/third_intro.png", headText: "Reading the Quran" , subText:"Read, and your Lord is the Most Generous",),
                   IntroPage(image: "assets/images/fourth_intro.png", headText: "Bearish" , subText: "Praise the name of your Lord, the Most High",),
                   IntroPage(image: "assets/images/fifth_into.png", headText: "Holy Quran Radio" , subText:"You can listen to the Holy Quran Radio through the application for free and easily" ,)
-
                 ],
               ),
             ),
@@ -76,7 +74,6 @@ class _IntroScreenState extends State<IntroScreen> {
                     _currentPage==_lastPage-1  ? Navigator.pushNamed(context, HomeScreen.routeName) :
                     _controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn) ;
                   }, child:Text("next" ,style:titleMedium() ,)) ,
-
                 ],
               ),
             )
