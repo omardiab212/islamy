@@ -1,5 +1,5 @@
  import 'package:flutter/material.dart';
-import 'package:islamy/screens/home_screen.dart';
+import 'package:islamy/screens/home/home_screen.dart';
 import 'package:islamy/screens/intro_screen.dart';
 
 void main() {
@@ -13,7 +13,7 @@ void main() {
    Widget build(BuildContext context) {
      return MaterialApp(
        debugShowCheckedModeBanner: false,
-       initialRoute: IntroScreen.routeName,
+       initialRoute: HomeScreen.routeName,
        routes: {
          IntroScreen.routeName: (_) =>  IntroScreen(),
          HomeScreen.routeName: (_) =>  HomeScreen(),
