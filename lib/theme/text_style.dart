@@ -3,7 +3,7 @@ import 'package:islamy/theme/app_colors.dart';
 
 TextStyle titleLarge ({
   double fontSize = 22 ,
-  FontWeight fontWeight = .normal ,
+  FontWeight fontWeight = .bold ,
   Color color = AppColors.gold ,
 }){
   return TextStyle(
@@ -17,7 +17,7 @@ TextStyle titleLarge ({
 
 TextStyle titleMedium ({
   double fontSize = 16 ,
-  FontWeight fontWeight = .normal ,
+  FontWeight fontWeight = .bold ,
   Color color = AppColors.gold ,
 }){
   return TextStyle(
@@ -32,7 +32,7 @@ TextStyle titleMedium ({
 
 TextStyle titleSmall ({
   double fontSize = 14 ,
-  FontWeight fontWeight = .normal ,
+  FontWeight fontWeight = .bold ,
   Color color = AppColors.gold ,
 }){
   return TextStyle(
