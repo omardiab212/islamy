@@ -1,6 +1,8 @@
  import 'package:flutter/material.dart';
+import 'package:islamy/models/sura.dart';
 import 'package:islamy/screens/home/home_screen.dart';
 import 'package:islamy/screens/intro_screen.dart';
+import 'package:islamy/screens/sura_screen.dart';
 
 void main() {
   runApp(const myApp());
@@ -17,6 +19,10 @@ void main() {
        routes: {
          IntroScreen.routeName: (_) =>  IntroScreen(),
          HomeScreen.routeName: (_) =>  HomeScreen(),
+         SuraScreen.routeName:(context){
+           var sura = ModalRoute.of(context)?.settings.arguments as Sura ;
+               return SuraScreen(sura: sura) ;
+         }
        },
      );
    }
