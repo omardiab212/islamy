@@ -64,6 +64,7 @@ flutter:
   assets:
       - assets/images/
       - assets/fonts/
+      - assets/files/Suras/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
