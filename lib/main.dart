@@ -1,5 +1,7 @@
  import 'package:flutter/material.dart';
+import 'package:islamy/models/hadeeth.dart';
 import 'package:islamy/models/sura.dart';
+import 'package:islamy/screens/hadith_screen.dart';
 import 'package:islamy/screens/home/home_screen.dart';
 import 'package:islamy/screens/intro_screen.dart';
 import 'package:islamy/screens/sura_screen.dart';
@@ -17,13 +19,23 @@ void main() {
        debugShowCheckedModeBanner: false,
        initialRoute: HomeScreen.routeName,
        routes: {
-         IntroScreen.routeName: (_) =>  IntroScreen(),
-         HomeScreen.routeName: (_) =>  HomeScreen(),
-         SuraScreen.routeName:(context){
-           var sura = ModalRoute.of(context)?.settings.arguments as Sura ;
-               return SuraScreen(sura: sura) ;
-         }
-       },
+         IntroScreen.routeName: (_) => IntroScreen(),
+         HomeScreen.routeName: (_) => HomeScreen(),
+         SuraScreen.routeName: (context) {
+           var sura = ModalRoute
+               .of(context)
+               ?.settings
+               .arguments as Sura;
+           return SuraScreen(sura: sura);
+         },
+         HadithScreen.routeName: (context) {
+           var hadith = ModalRoute
+               .of(context)
+               ?.settings
+               .arguments as Hadeeth;
+           return HadithScreen(hadith: hadith);
+         },
+       }
      );
    }
  }
