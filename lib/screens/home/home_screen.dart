@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/screens/home/tabs/hadeeth_tab.dart';
 import 'package:islamy/screens/home/tabs/quran_tab.dart';
+import 'package:islamy/screens/home/tabs/sebha_tab.dart';
 import 'package:islamy/theme/app_colors.dart';
 import 'package:islamy/widgets/base_tab.dart';
 
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget>tabs = [
     BaseTab(image: "assets/images/quran_bg.png", content: QuranTab(),),
     BaseTab(image: "assets/images/hadith_bg.png", content: HadeethTab(),),
-    BaseTab(image: "assets/images/sebha_bg.png", content: Container(color: Colors.blue,),),
+    BaseTab(image: "assets/images/sebha_bg.png", content: SebhaTab(),),
     BaseTab(image: "assets/images/radio_bg.png", content: Container(color: Colors.yellowAccent,),),
     BaseTab(image: "assets/images/more_bg.png", content: Container(color: Colors.orange,),),
 

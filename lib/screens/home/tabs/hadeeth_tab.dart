@@ -16,7 +16,6 @@ class HadeethTab extends StatefulWidget {
 }
 List<Hadeeth> ahadeeth = [] ;
 
-
 class _HadeethTabState extends State<HadeethTab> {
   @override
   void initState() {
