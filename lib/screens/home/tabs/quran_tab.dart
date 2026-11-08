@@ -1,11 +1,64 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:islamy/models/sura.dart';
 import 'package:islamy/theme/app_colors.dart';
 import 'package:islamy/theme/text_style.dart';
-import 'package:islamy/widgets/sura_list.dart';
+import 'package:islamy/widgets/quran_search_layout.dart';
+import 'package:islamy/widgets/quran_tab_layout.dart';
+import 'package:lottie/lottie.dart';
 
-class QuranTab extends StatelessWidget {
-  const QuranTab({super.key});
+
+typedef SuraWidgitOnClickCallBack = Future<void> Function(Sura) ;
+
+class QuranTab extends StatefulWidget {
+   QuranTab({super.key});
+
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+
+}
+
+class _QuranTabState extends State<QuranTab> {
+  TextEditingController controller = TextEditingController(text: "");
+  List<Sura>searchResult = [];
+  Timer? _debounceTimer;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.addListener((){
+
+        if (_debounceTimer?.isActive ?? false) _debounceTimer!.cancel();
+
+        _debounceTimer = Timer(const Duration(milliseconds: 500), () {
+          searchSura(controller.text);
+        });
+
+
+    });
+  }
+
+
+  void searchSura(String input){
+    if(input.isEmpty){
+      searchResult = [] ;
+      setState(() {
+      });
+      return ;
+    }
+    if(RegExp(r'^[a-zA-Z]+').hasMatch(input)){
+      searchResult = sura.where((sura) => sura.nameEn.toLowerCase().contains(input.toLowerCase())).toList();
+
+    }
+    else{
+      searchResult = sura.where((sura) => sura.nameAr.toLowerCase().contains(input.toLowerCase())).toList();
+
+    }
+    setState(() {
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +69,7 @@ class QuranTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0 , horizontal: 24),
           child: TextField(
+            controller: controller,
             style: titleMedium(color: AppColors.white),
             decoration: InputDecoration(
               filled: true,
@@ -33,17 +87,26 @@ class QuranTab extends StatelessWidget {
               ),
           ),
         ),
-        Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 32,),
-          child: Text("Suras List" , style: titleLarge(color: AppColors.white),),),
-        Expanded(child: ListView.separated(
-            itemBuilder:(_ , index) => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12 , vertical: 8),
-              child: SuraList(sura: sura[index],),
-            ),
-            separatorBuilder: (_,_) => Divider( color: AppColors.white, indent: 40, endIndent: 40,),
-            itemCount: 114))
 
+
+          if(searchResult.isEmpty && controller.text.isEmpty)
+            QuranTabLayout()
+
+          else if(searchResult.isEmpty && controller.text.isNotEmpty)
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: .center,
+                children: [
+                  LottieBuilder.asset("assets/animations/Man reads Quran on Ramadan.json" , height: MediaQuery.sizeOf(context).height*.5,),
+                  Text("No Suras Found" , style: titleMedium(),)
+                ],
+              ),
+            ),
+          )
+
+        else
+          QuranSearchLayout(suralist: searchResult,),
       ],
     );
   }

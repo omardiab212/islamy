@@ -5,14 +5,14 @@ import 'package:islamy/theme/app_colors.dart';
 import 'package:islamy/theme/text_style.dart';
 
 class SuraList extends StatelessWidget {
-  const SuraList({super.key, required this.sura});
-   final Sura sura ;
+  const SuraList({super.key, required this.sura,});
+  final Sura sura ;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, SuraScreen.routeName , arguments: sura) ;
+        Navigator.pushNamed(context, SuraScreen.routeName ,arguments: sura );
       },
       child: Row(
       children: [

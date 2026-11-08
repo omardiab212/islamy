@@ -17,7 +17,7 @@ void main() {
    Widget build(BuildContext context) {
      return MaterialApp(
        debugShowCheckedModeBanner: false,
-       initialRoute: HomeScreen.routeName,
+       initialRoute: IntroScreen.routeName,
        routes: {
          IntroScreen.routeName: (_) => IntroScreen(),
          HomeScreen.routeName: (_) => HomeScreen(),

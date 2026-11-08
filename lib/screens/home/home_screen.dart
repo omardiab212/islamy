@@ -20,9 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
     BaseTab(image: "assets/images/quran_bg.png", content: QuranTab(),),
     BaseTab(image: "assets/images/hadith_bg.png", content: HadeethTab(),),
     BaseTab(image: "assets/images/sebha_bg.png", content: SebhaTab(),),
-    BaseTab(image: "assets/images/radio_bg.png", content: Container(color: Colors.yellowAccent,),),
-    BaseTab(image: "assets/images/more_bg.png", content: Container(color: Colors.orange,),),
-
   ] ;
 
   @override
@@ -57,17 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
               icon:selectedIcon(currentIndex==2,"assets/images/ic_sebha.png" ),
               label: "Sebha",
             ),
-
-            BottomNavigationBarItem(
-              icon:selectedIcon(currentIndex==3,"assets/images/ic_radio.png" ),
-              label: "radio",
-            ),
-
-            BottomNavigationBarItem(
-              icon:selectedIcon(currentIndex==4,"assets/images/ic_time.png" ),
-              label: "time",
-            ),
-
       ]),
 
       body: tabs[currentIndex],
